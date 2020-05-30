@@ -1,0 +1,41 @@
+swagger: "2.0"
+basePath: "/"
+info:
+  title: DRS Pdf Generator
+  description: Api's to generate pdf
+  version: '1.0'
+paths:
+  /generatepdf:
+    post:
+      tags:
+        - Pdf generator
+      description: convert html to pdf
+      produces:
+        - application/pdf
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: htmlTemplateFile
+          in: formData
+          type: file
+          required: true
+          description: html to be processed
+        - name: clinicalJsonData
+          in: formData
+          type: file
+          required: true
+          description: Json data to be processed
+        - name: reportFormatType
+          in: formData
+          description: enter html/pdf, depending on the required output format
+          type: string
+          required: true
+        - name: sanitizeHtmlTemplate
+          in: formData
+          description: enter true/false, if you want to sanitize html
+          type: string
+          required: false
+      responses:
+        200:
+          description: Successfully created
+
