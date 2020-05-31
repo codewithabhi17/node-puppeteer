@@ -1,7 +1,7 @@
 swagger: "2.0"
 basePath: "/"
 info:
-  title: DRS Pdf Generator
+  title: Pdf Generator
   description: Api's to generate pdf
   version: '1.0'
 paths:
@@ -20,19 +20,14 @@ paths:
           type: file
           required: true
           description: html to be processed
-        - name: clinicalJsonData
+        - name: jsonData
           in: formData
           type: file
           required: true
           description: Json data to be processed
         - name: reportFormatType
           in: formData
-          description: enter html/pdf, depending on the required output format
-          type: string
-          required: true
-        - name: sanitizeHtmlTemplate
-          in: formData
-          description: enter true/false, if you want to sanitize html
+          description: enter html or pdf, depending on the required output format
           type: string
           required: false
       responses:
